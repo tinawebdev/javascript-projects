@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA API Pictures</title>
+  <link rel="icon" href="https://www.google.com/s2/u/0/favicons?domain=nasa.gov" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader hidden">
+    <img src="rocket.svg" alt="Rocket Loading Animation">
+  </div>
+  <!-- Container -->
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navigation-container">
+      <!-- Results Nav -->
+      <ul class="navigation-items" id="resultsNav">
+        <li class="clickable active" onclick="getNasaPictures()"><i class="fas fa-rocket"></i> NASA Feed</li>
+        <li class="clickable" onclick="updateDOM('favorites')" id="favorites"><i class="fas fa-star"></i> Favorites</li>
+      </ul>
+      <!-- Favorites Nav -->
+      <ul class="navigation-items hidden" id="favoritesNav">
+        <li class="clickable" onclick="getNasaPictures()"><i class="fas fa-meteor"></i> Load More NASA Images</li>
+      </ul>
+    </nav>
+    <!-- Images Container -->
+    <div class="images-container"></div>
+  </div>
+  <!-- Save Confirmation -->
+  <div class="save-confirmed" hidden>
+    <p>Added to Favorites!</p>
+  </div>
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>

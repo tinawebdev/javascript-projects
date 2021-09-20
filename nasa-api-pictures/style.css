@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #34495e;
+  background-color: #2C3E50;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+/* Loader */
+.loader {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navigation */
+.navigation-container {
+  position: fixed;
+  top: 0;
+}
+
+.navigation-items {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: #34495e;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.clickable {
+  color: #647a91;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  user-select: none;
+  transition: all 0.3s ease-out 0s;
+}
+
+.clickable:hover, .active{
+  background: #202e3b;
+  color: #ECF0F1;
+}
+
+.fas {
+  font-size: 16px;
+  margin-right: 0 4px;
+}
+
+/* Images Container */
+.images-container {
+  width: 800px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #ECF0F1;
+  margin: 10px 10px 20px;
+  transition: 0.3s;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 0 20px 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.card-link {
+  min-width: 130px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-out 0s;
+}
+
+.card-link i {
+  margin-right: 5px;
+}
+
+.card-link:hover {
+  font-weight: bold;
+  color: #34495e;
+}
+
+/* Save Confirmation */
+.save-confirmed {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ECF0F1;
+  width: 100%;
+  padding: 15px 0;
+  background: #202e3bea;
+  transition: 0.3s;
+  position: fixed;
+  bottom: 0;
+}
+
+.text-muted {
+  margin-top: 25px;
+  color: #34495e;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+/* Large Smartphone (Vertical) */
+@media screen and (max-width: 800px) {
+  body {
+    line-height: 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .images-container {
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 10px 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .card-link {
+    text-align: start;
+  }
+
+  .text-muted {
+    flex-direction: column-reverse;
+  }
+}
