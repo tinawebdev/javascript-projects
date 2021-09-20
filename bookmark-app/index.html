@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark App</title>
+  <link rel="icon" href="https://www.google.com/s2/u/0/favicons?domain=css-tricks.com" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Open Modal -->
+  <h1 class="link" id="show-modal">Add Bookmark</h1>
+  <!-- Bookmarks -->
+  <div class="container" id="bookmarks-container"></div>
+  <!-- Modal -->
+  <div class="modal-container" id="modal">
+    <div class="modal">
+      <i class="fas fa-times close-icon" id="close-modal"></i>
+      <div class="modal-header">
+        <h3>Add Bookmark</h3>
+      </div>
+      <div id="alert-container" hidden>
+        <i id="alert-icon"></i>
+        <p id="alert-message"></p>
+      </div>
+      <div class="modal-content">
+        <form class="bookmark-form" id="bookmark-form">
+          <!-- Website Name -->
+          <div class="form-group">
+            <label for="website-name" class="form-label">Website Name</label>
+            <input type="text" class="form-input" id="website-name">
+          </div>
+          <!-- Website URL -->
+          <div class="form-group">
+            <label for="website-url" class="form-label">Website Url</label>
+            <input type="text" class="form-input" id="website-url">
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
