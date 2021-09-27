@@ -21,6 +21,7 @@ Collection of the small projects built with HTML5, CSS3 & JavaScript. No framewo
 | 11 | [Form Validation](/form-validation/) | Form validation using HTML and JavaScript. | [Demo](https://tinawebdev.github.io/javascript-projects/form-validation/) |
 | 12 | [Spock Rock Game](/spock-rock-game/) | Rock Paper Scissor Lizard Spock game. | [Demo](https://tinawebdev.github.io/javascript-projects/spock-rock-game/) |
 | 13 | [NASA API Pictures](/nasa-api-pictures/) | Check out random NASA Astronomy Pictures of the Day. | [Demo](https://tinawebdev.github.io/javascript-projects/nasa-api-pictures/) |
+| 14 | [Calculator](/calculator/) | Simple calculator to add, subtract, multiply and divide numbers. | [Demo](https://tinawebdev.github.io/javascript-projects/calculator/) |
 
 ## How to use
 * Open Terminal and change the current working directory to the location where you want the cloned directory to be made.
