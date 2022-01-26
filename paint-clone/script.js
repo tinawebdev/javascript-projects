@@ -21,6 +21,7 @@ let currentSize = 10;
 let bucketColor = '#FFFFFF';
 let currentColor = '#1DABB8';
 let isEraser = false;
+let isMouseDown = false;
 
 // Formatting Brush Size
 function displayBrushSize() {
@@ -80,6 +81,40 @@ function createCanvas() {
   body.appendChild(canvas);
   switchToBrush();
 }
+
+// Get Mouse Position
+function getMousePosition(event) {
+  const boundaries = canvas.getBoundingClientRect();
+  return {
+    x: event.clientX - boundaries.left,
+    y: event.clientY - boundaries.top,
+  };
+}
+
+// Mouse Down
+canvas.addEventListener('mousedown', (event) => {
+  isMouseDown = true;
+  const currentPosition = getMousePosition(event);
+  context.moveTo(currentPosition.x, currentPosition.y);
+  context.beginPath();
+  context.lineWidth = currentSize;
+  context.lineCap = 'round';
+  context.strokeStyle = currentColor;
+});
+
+// Mouse Move
+canvas.addEventListener('mousemove', (event) => {
+  if (isMouseDown) {
+    const currentPosition = getMousePosition(event);
+    context.lineTo(currentPosition.x, currentPosition.y);
+    context.stroke();
+  }
+});
+
+// Mouse Up
+canvas.addEventListener('mouseup', () => {
+  isMouseDown = false;
+});
 
 // Event Listener
 brushIcon.addEventListener('click', switchToBrush);
