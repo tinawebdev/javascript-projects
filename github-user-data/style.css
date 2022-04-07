@@ -31,6 +31,7 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
   width: 350px;
+  align-self: center;
 }
 
 .user_name {
@@ -79,4 +80,14 @@ button:hover {
 
 button:focus {
   outline: none;
+}
+
+.user_repo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+  margin: 15px 0;
+  border: 2px solid var(--primary-color);
+  max-width: 600px;
 }
