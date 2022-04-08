@@ -26,7 +26,7 @@ const fetchUserData =  userName => {
 };
 
 const fetchUserRepos = userName => {
-  return fetch(`https://api.github.com/users/${userName}/repos?per_page=${3}`)
+  return fetch(`https://api.github.com/users/${userName}/repos`)
   .then(handleError)  // skips to .catch if error is thrown
   .catch(console.log) // catches the error and logs it
 }
@@ -39,16 +39,40 @@ const renderUserData = userData => {
   userInfo.hidden = false;
 };
 
+const sortUserRepos = userRepos => {
+  const REPOS_MAX = 5;
+
+  let sortedRepos = [];
+
+  const addRepos = (repo) => {
+    if (sortedRepos.length <  REPOS_MAX) {
+      sortedRepos.push(repo);
+    }
+  }
+
+  userRepos.filter(repo => repo.stargazers_count > 0).map(addRepos);
+
+  if (userRepos.length >= REPOS_MAX && sortedRepos.length < REPOS_MAX) {
+    userRepos.filter(repo => !sortedRepos.includes(repo)).map(addRepos);
+  } else {
+    userRepos.map(addRepos);
+  }
+
+  return sortedRepos;
+}
+
 const renderUserRepos = userReposData => {
   userReposData.map(repo => {
     let userRepo = `
-      <div class="user_repo">
-        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-        <small>${repo.description ? repo.description : "No description"}</small>
+      <div class="${repo.stargazers_count ? "user_repo stars" : "user_repo"}">
+        <span>
+          <a href="${repo.html_url}" target="_blank" class="user_repo-link">${repo.name}</a>
+        </span>
+        ${repo.description ? `<small>${repo.description}</small>` : ""}
       </div>
     `;
 
-    userRepos.insertAdjacentHTML("afterbegin", userRepo);
+    userRepos.insertAdjacentHTML("beforeend", userRepo);
   })
 }
 
@@ -63,6 +87,7 @@ const onSearchUser = () => {
   .catch(console.log)
 
   fetchUserRepos(userName)
+  .then(userRepos => sortUserRepos(userRepos))
   .then(userRepos => renderUserRepos(userRepos))
   .catch(console.log)
 };

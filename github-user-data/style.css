@@ -19,6 +19,8 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  max-width: 600px;
 }
 
 .user_info {
@@ -89,5 +91,25 @@ button:focus {
   padding: 10px;
   margin: 15px 0;
   border: 2px solid var(--primary-color);
-  max-width: 600px;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.user_repo:hover {
+  transform: scale(1.03);
+}
+
+.user_repo-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.user_repo-link:hover {
+  text-decoration: underline;
+}
+
+.stars span::after {
+  content: '\2605';
+  font-family: FontAwesome;
+  color: var(--secondary-color);
 }
