@@ -4,14 +4,13 @@ const userInfo = document.querySelector('.user_info');
 const userRepos = document.querySelector('.user_repos');
 
 const defaultAvatar = 'default-avatar.png';
-
 userAvatarElem.src = defaultAvatar;
 
 // handler function that throws any encountered error
 const handleError = response => {
   if (!response.ok) { 
      userInfo.hidden = true;
-     userAvatarElem.src = defaultAvatar;
+     userAvatarElem.src = '404.png';
      showUserInputElem.value = "";
      throw Error(response.statusText);
   } else {
