@@ -108,8 +108,22 @@ button:focus {
   text-decoration: underline;
 }
 
-.stars span::after {
+.repo_with_stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.repo_with_stars span::after {
   content: '\2605';
   font-family: FontAwesome;
-  color: var(--secondary-color);
+  margin-left: 3px;
+}
+
+.stars_count {
+  font-weight: 700;
+}
+
+.repo_description {
+  margin-top: 15px;
 }

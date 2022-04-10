@@ -62,14 +62,25 @@ const sortUserRepos = userRepos => {
 
 const renderUserRepos = userReposData => {
   userReposData.map(repo => {
-    let userRepo = `
-      <div class="${repo.stargazers_count ? "user_repo stars" : "user_repo"}">
-        <span>
+    let userRepo = "";
+    if (repo.stargazers_count) {
+      userRepo = `
+        <div class="user_repo">
+          <div class="repo_with_stars">
+            <a href="${repo.html_url}" target="_blank" class="user_repo-link">${repo.name}</a>
+            <span class="stars_count">${repo.stargazers_count}</span>
+          </div>
+          ${repo.description ? `<small class="repo_description">${repo.description}</small>` : ""}
+        </div>
+      `;
+    } else {
+      userRepo = `
+        <div class="user_repo">
           <a href="${repo.html_url}" target="_blank" class="user_repo-link">${repo.name}</a>
-        </span>
-        ${repo.description ? `<small>${repo.description}</small>` : ""}
-      </div>
-    `;
+          ${repo.description ? `<small class="repo_description">${repo.description}</small>` : ""}
+        </div>
+      `;
+    }
 
     userRepos.insertAdjacentHTML("beforeend", userRepo);
   })
