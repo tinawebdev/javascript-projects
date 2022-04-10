@@ -49,7 +49,11 @@ const sortUserRepos = userRepos => {
     }
   }
 
-  userRepos.filter(repo => repo.stargazers_count > 0).map(addRepos);
+  const maxStars = (function(a, b) {
+    return b.stargazers_count - a.stargazers_count;
+  });
+
+  userRepos.filter(repo => repo.stargazers_count > 0).sort(maxStars).map(addRepos);
 
   if (userRepos.length >= REPOS_MAX && sortedRepos.length < REPOS_MAX) {
     userRepos.filter(repo => !sortedRepos.includes(repo)).map(addRepos);
