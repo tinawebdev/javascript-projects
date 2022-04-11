@@ -149,6 +149,7 @@ button:focus {
   .container {
     align-items: unset;
     padding: 10px;
+    width: 354px;
   }
 
   .name-form {
@@ -156,6 +157,6 @@ button:focus {
   }
 
   .user_repos {
-    width: unset;
+    width: auto;
   }
 }
