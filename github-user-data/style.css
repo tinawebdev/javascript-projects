@@ -22,19 +22,21 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 100px 10px;
   max-width: 600px;
 }
 
 .user_info {
   text-align: center;
-  padding: 15px 0;
+  margin-top: 30px;
 }
 
 .user_avatar {
   border: 2px solid var(--primary-color);
+  background: white;
   margin-bottom: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   width: 350px;
   align-self: center;
 }
@@ -51,6 +53,7 @@ body {
 
 .name-form {
   margin: 10px 0;
+  width: 350px;
 }
 
 input {
@@ -87,6 +90,11 @@ button:focus {
   outline: none;
 }
 
+.user_repos {
+  margin-top: 30px;
+  width: 550px;
+}
+
 .user_repo {
   display: flex;
   flex-direction: column;
@@ -96,6 +104,7 @@ button:focus {
   border: 2px solid var(--primary-color);
   transition: all .2s ease-in-out;
   cursor: pointer;
+  background: white;
 }
 
 .user_repo:hover {
@@ -135,5 +144,18 @@ button:focus {
 @media screen and (max-width: 600px) {
   body {
     min-height: unset;
+  }
+
+  .container {
+    align-items: unset;
+    padding: 10px;
+  }
+
+  .name-form {
+    width: auto;
+  }
+
+  .user_repos {
+    width: unset;
   }
 }
