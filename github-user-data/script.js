@@ -40,11 +40,10 @@ const renderUserData = userData => {
 
 const sortUserRepos = userRepos => {
   const REPOS_MAX = 5;
-
   let sortedRepos = [];
 
   const addRepos = (repo) => {
-    if (sortedRepos.length <  REPOS_MAX) {
+    if (sortedRepos.length <  REPOS_MAX && !sortedRepos.includes(repo)) {
       sortedRepos.push(repo);
     }
   }
@@ -54,12 +53,7 @@ const sortUserRepos = userRepos => {
   });
 
   userRepos.filter(repo => repo.stargazers_count > 0).sort(maxStars).map(addRepos);
-
-  if (userRepos.length >= REPOS_MAX && sortedRepos.length < REPOS_MAX) {
-    userRepos.filter(repo => !sortedRepos.includes(repo)).map(addRepos);
-  } else {
-    userRepos.map(addRepos);
-  }
+  userRepos.map(addRepos);
 
   return sortedRepos;
 }
