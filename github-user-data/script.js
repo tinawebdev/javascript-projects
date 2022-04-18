@@ -18,14 +18,16 @@ const handleError = response => {
   }
 };
 
+const clearReposList = () => userRepos.innerHTML = "";
+
 const fetchUserData =  userName => {
   return fetch(`https://api.github.com/users/${userName}`)
   .then(handleError)  // skips to .catch if error is thrown
   .catch(console.log) // catches the error and logs it
 };
 
-const fetchUserRepos = userName => {
-  return fetch(`https://api.github.com/users/${userName}/repos`)
+const fetchUserRepos = url => {
+  return fetch(url)
   .then(handleError)  // skips to .catch if error is thrown
   .catch(console.log) // catches the error and logs it
 }
@@ -88,13 +90,14 @@ const showUserBtnElem = document.querySelector('.name-form_btn');
 const showUserInputElem = document.querySelector('.name-form_input');
 
 const onSearchUser = () => {
+  clearReposList();
   const userName = showUserInputElem.value;
-  userRepos.innerHTML = "";
   fetchUserData(userName)
-  .then(userData => renderUserData(userData))
-  .catch(console.log)
-
-  fetchUserRepos(userName)
+  .then(userData => {
+    renderUserData(userData);
+    return userData.repos_url;
+  })
+  .then(url => fetchUserRepos(url))
   .then(userRepos => sortUserRepos(userRepos))
   .then(userRepos => renderUserRepos(userRepos))
   .catch(console.log)
