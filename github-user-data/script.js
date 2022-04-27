@@ -91,7 +91,7 @@ const showUserInputElem = document.querySelector('.name-form_input');
 
 const onSearchUser = () => {
   clearReposList();
-  const userName = showUserInputElem.value;
+  const userName = showUserInputElem.value.trim();
   fetchUserData(userName)
   .then(userData => {
     renderUserData(userData);
@@ -104,7 +104,7 @@ const onSearchUser = () => {
 };
 
 const inputKeyPress = (event) => {
-  if (event.key === 'Enter') onSearchUser();
+  if (event.key === 'Enter' && showUserInputElem.value.trim() !== '') onSearchUser();
 }
 
 showUserBtnElem.addEventListener('click', onSearchUser);
