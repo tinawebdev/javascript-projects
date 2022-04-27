@@ -103,4 +103,9 @@ const onSearchUser = () => {
   .catch(console.log)
 };
 
+const inputKeyPress = (event) => {
+  if (event.key === 'Enter') onSearchUser();
+}
+
 showUserBtnElem.addEventListener('click', onSearchUser);
+showUserInputElem.addEventListener('keypress', inputKeyPress);
